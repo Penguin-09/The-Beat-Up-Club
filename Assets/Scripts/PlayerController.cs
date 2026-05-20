@@ -2,7 +2,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private Vector2 moveInput;
