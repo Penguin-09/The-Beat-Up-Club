@@ -2,7 +2,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private Vector2 moveInput;
@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private bool sideStepLeftPressed;
     private bool sideStepRightPressed;
-
     public float backwardMoveSpeed = 2f;
     public float forwardMoveSpeed = 3f;
     public float jumpSpeed = 5;
@@ -20,11 +19,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void OnMove(InputValue value)
@@ -45,42 +39,51 @@ public class PlayerController : MonoBehaviour
 
     public void OnSideStepLeft(InputValue value)
     {
-        sideStepLeftPressed = true;
+        if (isGrounded)
+        {
+            sideStepLeftPressed = true;
+        }
     }
 
     public void OnSideStepRight(InputValue value)
     {
-        sideStepRightPressed = true;
+        if (isGrounded)
+        {
+            sideStepRightPressed = true;
+        }
     }
 
     void FixedUpdate()
     {
         Vector3 velocity = rigidBody.linearVelocity;
 
-        if (sideStepLeftPressed)
+        if (isGrounded)
         {
-            velocity.x = -sideStepSpeed;
-            sideStepLeftPressed = false;
-        }
-        else if (sideStepRightPressed)
-        {
-            velocity.x = sideStepSpeed;
-            sideStepRightPressed = false;
-        }
-        else if (isGrounded)
-        {
-            float moveSpeed = moveInput.x < 0 ? backwardMoveSpeed : forwardMoveSpeed;
-            velocity.x = moveInput.x * moveSpeed;
+            if (sideStepLeftPressed)
+            {
+                velocity.x = -sideStepSpeed;
+                sideStepLeftPressed = false;
+            }
+            else if (sideStepRightPressed)
+            {
+                velocity.x = sideStepSpeed;
+                sideStepRightPressed = false;
+            }
+            else
+            {
+                float moveSpeed = moveInput.x < 0 ? backwardMoveSpeed : forwardMoveSpeed;
+                velocity.x = moveInput.x * moveSpeed;
+            }
+
+            if (jumpPressed)
+            {
+                velocity.y = jumpSpeed;
+                jumpPressed = false;
+                isGrounded = false;
+            }
         }
 
-        if (jumpPressed)
-        {
-            velocity.y = jumpSpeed;
-            jumpPressed = false;
-            isGrounded = false;
-        }
-
-            rigidBody.linearVelocity = velocity;
+        rigidBody.linearVelocity = velocity;
         
     }
 
