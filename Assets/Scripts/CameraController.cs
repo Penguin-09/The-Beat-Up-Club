@@ -4,23 +4,19 @@ public class CameraController : MonoBehaviour
 {
     public Transform player1;
     public Transform player2;
+    private Vector3 velocity;
 
-    private Vector3 offset = new Vector3(0f, 0.5f, -5f);
+    public float smoothTime = 0.2f;
 
-    void Start()
+    void LateUpdate()
     {
-        
-    }
-
-    void Update()
-    {
-        // Position the camera inbetween the two players
+        // Calculate the midpoint between the two players
         Vector3 midPoint = (player1.position + player2.position) / 2f;
-        
-        // Move the camera back based on the distance between the two players
-        float distance = Vector3.Distance(player1.position, player2.position);
-        offset.z = -3f - distance * 0.3f;
 
-        transform.position = midPoint + offset;
+        // Move the camera away based on the distance between the players
+        float distance = Vector3.Distance(player1.position, player2.position);
+        
+        Vector3 targetPosition = midPoint + new Vector3(0f, 0f, -3f - distance * 0.3f);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }
