@@ -21,6 +21,7 @@ public class GameLogicHandler : MonoBehaviour
 
         var player1Input = player1.GetComponent<PlayerInput>();
         var player2Input = player2.GetComponent<PlayerInput>();
+        player2Input.enabled = false;
 
         // Pair Keyboard + Gamepad[0] to player1
         if (Keyboard.current != null)
@@ -39,6 +40,7 @@ public class GameLogicHandler : MonoBehaviour
         if (Gamepad.all.Count > 1)
         {
             player2Input.SwitchCurrentControlScheme("Gamepad", Gamepad.all[1]);
+            player2Input.enabled = true;
         }
 
         cameraController.player1 = player1.transform;
