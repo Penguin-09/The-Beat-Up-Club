@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c80bae7037b2b341acf7a44164ff209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  backwardMoveSpeed: 2
+  backwardMoveSpeed: 1.5
   forwardMoveSpeed: 3
   jumpSpeed: 5
   sideStepSpeed: 30

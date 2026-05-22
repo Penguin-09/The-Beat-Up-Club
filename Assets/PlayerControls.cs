@@ -242,6 +242,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ba477165-7c22-4ab8-8fb8-0079e5d1f14e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SideStepRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""faf78720-1cea-482e-85e8-873f720f77ef"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SideStepRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ae392c42-f1ee-482a-9af7-ff1d0356810e"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": ""MultiTap"",
@@ -256,6 +278,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""2545df36-f1a8-4976-8258-4c69f4e8bdc3"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": ""MultiTap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SideStepLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cac0a768-bfa3-4828-af31-2ebf73dcfbdb"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SideStepLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""887d970d-9d5c-4199-80a9-819b9b3fb8ec"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SideStepLeft"",

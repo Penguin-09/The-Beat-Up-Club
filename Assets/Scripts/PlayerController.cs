@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private bool sideStepLeftPressed;
     private bool sideStepRightPressed;
-    public float backwardMoveSpeed = 2f;
+    public float backwardMoveSpeed = 1.5f;
     public float forwardMoveSpeed = 3f;
-    public float jumpSpeed = 5;
+    public float jumpSpeed = 5f;
     public float sideStepSpeed = 30f;
     
 
