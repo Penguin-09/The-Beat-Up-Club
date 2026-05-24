@@ -220,28 +220,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c414b948-dfdb-457a-8541-c737881ec496"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": ""MultiTap"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SideStepRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""66808b1f-b8e9-436b-b1bf-de35df706652"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": ""MultiTap"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SideStepRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ba477165-7c22-4ab8-8fb8-0079e5d1f14e"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -259,28 +237,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SideStepRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ae392c42-f1ee-482a-9af7-ff1d0356810e"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": ""MultiTap"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SideStepLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2545df36-f1a8-4976-8258-4c69f4e8bdc3"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": ""MultiTap"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SideStepLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
