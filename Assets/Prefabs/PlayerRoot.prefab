@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: -7571976192348861447}
   - component: {fileID: 5382384208179435834}
   - component: {fileID: 1947237023619247892}
+  - component: {fileID: 4423515380093983010}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -162,15 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c80bae7037b2b341acf7a44164ff209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  backwardMoveSpeed: 3.6
-  forwardMoveSpeed: 4.8
+  backwardMoveSpeed: 2
+  forwardMoveSpeed: 3
   moveAcceleration: 45
   moveDeceleration: 70
   turnDeceleration: 95
   moveInputDeadzone: 0.1
-  forceZeroFrictionOnPlayerColliders: 1
-  jumpSpeed: 5
-  sideStepSpeed: 30
+  jumpSpeed: 12
+  sideStepSpeed: 10
 --- !u!114 &-7571976192348861447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +262,52 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.19460064}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.9733913, y: 1.8746947}
+  m_EdgeRadius: 0
+--- !u!60 &4423515380093983010
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3241774636263853647}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a32d6f4ce4cc11346a272328f8e0b3ec, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,8 +318,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9733913, y: 2.263896}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.48752156, y: 0.74303865}
+      - {x: 0.0013596583, y: 1.2719309}
+      - {x: -0.48692814, y: 0.7433562}
+  m_UseDelaunayMesh: 1
 --- !u!1 &5647504830953469242
 GameObject:
   m_ObjectHideFlags: 0

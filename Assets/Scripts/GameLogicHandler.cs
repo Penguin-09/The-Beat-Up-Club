@@ -4,65 +4,72 @@ using UnityEngine.InputSystem;
 
 public class GameLogicHandler : MonoBehaviour
 {
+    public DebugHandling debugHandler;
     public Button startButton;
     public GameObject playerPrefab;
     public Transform spawn1;
     public Transform spawn2;
     public CameraController cameraController;
+    private PlayerInput player1Input;
+    private PlayerInput player2Input;
 
     public void StartFight()
     {
         startButton.gameObject.SetActive(false);
+        debugHandler.PrintDebugText("Fight started");
 
-        PlayerInput player1Input;
-        if (Keyboard.current != null && Gamepad.all.Count > 0)
+        AssignDevices();
+        
+        // Initialize and activate camera
+        cameraController.player1 = player1Input.transform;
+        cameraController.player2 = player2Input.transform;
+        cameraController.enabled = true;
+    }
+
+    public void AssignDevices()
+    {
+        // PLAYER 1
+        if (Keyboard.current != null && Gamepad.all.Count == 0)
         {
-            player1Input = PlayerInput.Instantiate(
-                playerPrefab,
-                controlScheme: "Keyboard+Gamepad",
-                pairWithDevices: new InputDevice[] { Keyboard.current, Gamepad.all[0] });
-        }
-        else if (Keyboard.current != null)
-        {
+            // Keyboard only
             player1Input = PlayerInput.Instantiate(
                 playerPrefab,
                 controlScheme: "Keyboard",
                 pairWithDevice: Keyboard.current);
         }
-        else if (Gamepad.all.Count > 0)
+        else if (Keyboard.current != null && Gamepad.all.Count > 0)
         {
+            // Keyboard + Gamepad
             player1Input = PlayerInput.Instantiate(
                 playerPrefab,
-                controlScheme: "Gamepad",
-                pairWithDevice: Gamepad.all[0]);
+                controlScheme: "Keyboard+Gamepad",
+                pairWithDevices: new InputDevice[] { Keyboard.current, Gamepad.all[0] });
         }
         else
         {
+            // No input devices found, instantiate without pairing
             player1Input = PlayerInput.Instantiate(playerPrefab);
         }
 
         player1Input.transform.SetPositionAndRotation(spawn1.position, spawn1.rotation);
         player1Input.name = "Player1";
-
-        PlayerInput player2Input;
+        
+        // PLAYER 2
         if (Gamepad.all.Count > 1)
         {
+            // Gamepad only
             player2Input = PlayerInput.Instantiate(
                 playerPrefab,
                 controlScheme: "Gamepad",
                 pairWithDevice: Gamepad.all[1]);
-            player2Input.transform.SetPositionAndRotation(spawn2.position, spawn2.rotation);
-            player2Input.name = "Player2";
         }
         else
         {
-            GameObject player2 = Instantiate(playerPrefab, spawn2.position, spawn2.rotation);
-            player2.name = "Player2";
-            player2Input = player2.GetComponent<PlayerInput>();
+            // Not enough gamepads, instantiate without pairing
+            player2Input = PlayerInput.Instantiate(playerPrefab);
         }
-
-        cameraController.player1 = player1Input.transform;
-        cameraController.player2 = player2Input.transform;
-        cameraController.enabled = true;
+        
+        player2Input.transform.SetPositionAndRotation(spawn2.position, spawn2.rotation);
+        player2Input.name = "Player2";
     }
 }
