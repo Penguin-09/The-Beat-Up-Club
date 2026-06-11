@@ -127,6 +127,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Light Punch"",
+                    ""type"": ""Button"",
+                    ""id"": ""c99b9cfb-b413-4815-b28a-1591263c6ad4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -261,6 +270,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SideStepLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04dac650-fa17-4f49-90c6-d1ade211d134"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard;Keyboard+Gamepad"",
+                    ""action"": ""Light Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2da4ffd3-ca9d-4bbb-9299-94e34d357a8f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad;Keyboard+Gamepad"",
+                    ""action"": ""Light Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -312,6 +343,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_SideStepRight = m_Player.FindAction("SideStepRight", throwIfNotFound: true);
         m_Player_SideStepLeft = m_Player.FindAction("SideStepLeft", throwIfNotFound: true);
+        m_Player_LightPunch = m_Player.FindAction("Light Punch", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -396,6 +428,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_SideStepRight;
     private readonly InputAction m_Player_SideStepLeft;
+    private readonly InputAction m_Player_LightPunch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -423,6 +456,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SideStepLeft".
         /// </summary>
         public InputAction @SideStepLeft => m_Wrapper.m_Player_SideStepLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/LightPunch".
+        /// </summary>
+        public InputAction @LightPunch => m_Wrapper.m_Player_LightPunch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -461,6 +498,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SideStepLeft.started += instance.OnSideStepLeft;
             @SideStepLeft.performed += instance.OnSideStepLeft;
             @SideStepLeft.canceled += instance.OnSideStepLeft;
+            @LightPunch.started += instance.OnLightPunch;
+            @LightPunch.performed += instance.OnLightPunch;
+            @LightPunch.canceled += instance.OnLightPunch;
         }
 
         /// <summary>
@@ -484,6 +524,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SideStepLeft.started -= instance.OnSideStepLeft;
             @SideStepLeft.performed -= instance.OnSideStepLeft;
             @SideStepLeft.canceled -= instance.OnSideStepLeft;
+            @LightPunch.started -= instance.OnLightPunch;
+            @LightPunch.performed -= instance.OnLightPunch;
+            @LightPunch.canceled -= instance.OnLightPunch;
         }
 
         /// <summary>
@@ -591,5 +634,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSideStepLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Light Punch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLightPunch(InputAction.CallbackContext context);
     }
 }

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private bool sideStepLeftPressed;
     private bool sideStepRightPressed;
+    public Animator animator;
     public float backwardMoveSpeed = 2f;
     public float forwardMoveSpeed = 3f;
     public float moveAcceleration = 45f;
@@ -56,6 +57,16 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             sideStepRightPressed = true;
+        }
+    }
+
+    public void OnLightPunch(InputValue value)
+    {
+        float v = 0f;
+        try { v = value.Get<float>(); } catch { }
+        if (v > 0.5f)
+        {
+            animator.SetTrigger("Punch");
         }
     }
 

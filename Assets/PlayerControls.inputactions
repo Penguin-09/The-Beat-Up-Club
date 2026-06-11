@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Light Punch",
+                    "type": "Button",
+                    "id": "c99b9cfb-b413-4815-b28a-1591263c6ad4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -173,6 +182,28 @@
                     "processors": "",
                     "groups": ";Gamepad;Keyboard+Gamepad",
                     "action": "SideStepLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04dac650-fa17-4f49-90c6-d1ade211d134",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Keyboard+Gamepad",
+                    "action": "Light Punch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2da4ffd3-ca9d-4bbb-9299-94e34d357a8f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Keyboard+Gamepad",
+                    "action": "Light Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
